@@ -1,0 +1,46 @@
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
+
+local win = DiscordLib:Window("discord library")
+
+local serv = win:Server("toxivids autofarm script", "")
+
+local btns = serv:Channel("Buttons")
+
+btns:Button("open zephyr", function()
+DiscordLib:Notification("opened zephyr succesfully", "enable autokill and autoequip for the tp script to have effect", "Okay!")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TheRealAvrwm/Projects/main/Xeno%20MVSD%20script.lua", true))()
+end)
+
+btns:Seperator()
+
+_G.value = true
+
+btns:Button("open toxivids pro autofarm script", function()
+DiscordLib:Notification("succesfully enabled", "rejoin to disable (make sure ur not in a game) and make sure to open zephyr autokill script (autokill and autoequip)", "ok buddy just lemme autofarm")
+
+while _G.value do
+local input = "21.198, -107.62, -188.72"
+local x, y, z = input:match("([%d%.%-]+),%s([%d%.%-]+),%s([%d%.%-]+)")
+if x and y and z then
+    targetPosition = Vector3.new(tonumber(x), tonumber(y), tonumber(z))
+    local player = game.Players.LocalPlayer
+    local character = player.Character
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        character.HumanoidRootPart.Position = targetPosition
+        print("Teleported to: " .. tostring(targetPosition))
+    else
+        print("Character or HumanoidRootPart not found!")
+    end
+else
+    print("Invalid input format! Please enter as 'x, y, z'.")
+end
+wait(0.0000000000000000000000000000000000001)
+end
+end)
+
+btns:Button("stop autofarm :C", function()
+DiscordLib:Notification(":C", "ur prob stuck in the air so u better reset")
+_G.value = false
+end)
+
+win:Server("Main", "http://www.roblox.com/asset/?id=6031075938")
