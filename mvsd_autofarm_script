@@ -49,7 +49,7 @@ local player = game.Players.LocalPlayer
 if player and player.Character and player.Character:FindFirstChild("Humanoid") then
     player.Character.Humanoid.Health = 0
 end
-wait(80)
+wait(150)
 end
 DiscordLib:Notification("cant turn off", "rejoin to turn off")
 end)
