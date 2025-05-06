@@ -43,4 +43,15 @@ DiscordLib:Notification(":C", "ur prob stuck in the air so u better reset")
 _G.value = false
 end)
 
+btns:Button("autoreset button (to fix autofarm bugs)", function()
+while true do
+local player = game.Players.LocalPlayer
+if player and player.Character and player.Character:FindFirstChild("Humanoid") then
+    player.Character.Humanoid.Health = 0
+end
+wait(80)
+end
+DiscordLib:Notification("cant turn off", "rejoin to turn off")
+end)
+
 win:Server("Main", "http://www.roblox.com/asset/?id=6031075938")
